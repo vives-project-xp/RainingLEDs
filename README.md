@@ -9,7 +9,7 @@
     <li>Projectcanvas</li>
 </ul>
 <h1>What?</h1>
-<p>>The RainingLEDs project is a project for people who like to make pictures. It is a project for all ages, but more focussed on influencers and social media users. Our project consists of a box with side mirrors and 31 LEDstrips, to mirror infinite rain making it a unique photo location.
+<p>The RainingLEDs project is a project for people who like to make pictures. It is a project for all ages, but more focussed on influencers and social media users. Our project consists of a box with side mirrors and 31 LEDstrips, to mirror infinite rain making it a unique photo location.
 </p>
 <h1>How does it work?</h1>
 <p>The 31 LED-strips are controlled by an ESP32 microcontroller. That sends signals to the strips to recreate a handful of patterns. ...</p>
