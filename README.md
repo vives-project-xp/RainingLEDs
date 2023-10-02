@@ -1,4 +1,4 @@
-﻿# RainingLEDs
+# RainingLEDs
 <h1>Table of contents</h1>
 <ul>
     <li>What?</li>
@@ -9,7 +9,7 @@
     <li>Projectcanvas</li>
 </ul>
 <h1>What?</h1>
-<p>The RainingLEDs project is a project for people who like to make pictures. It is a project for all ages, but more focussed on influencers and social media users. Our project consists of a box with side mirrors and 31 LEDstrips, to mirror infinite rain making it a unique photo location.
+<p>The RainingLEDs project is a project for people who like to make pictures. It is a project for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 18 LEDstrips, to mirror infinite rain making it a unique photo location.
 </p>
 <h1>How does it work?</h1>
 <p>The 31 LED-strips are controlled by an ESP32 microcontroller. That sends signals to the strips to recreate a handful of patterns. ...</p>
@@ -17,10 +17,9 @@
 <ul>
     <li>Materials:</li>
     <ul>
-        <li>LED-strips</li>
+        <li>18 LED-strips</li>
         <li>3 wooden OSB plates</li>
-        <li>2 mirrors, 70cm X 70 cm</li>
-        <li>Mirror foil for the ceiling</li>
+        <li>Mirror foil for each side, 70cm X 70 cm</li>
         <li>ESP32 microcontroller</li>
         <li>Button(s)</li>
     </ul>
