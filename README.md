@@ -12,19 +12,21 @@
 <p>The RainingLEDs project is a project for people who like to make pictures. It is a project for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 18 LEDstrips, to mirror infinite rain making it a unique photo location.
 </p>
 <h1>How does it work?</h1>
-<p>The 31 LED-strips are controlled by an ESP32 microcontroller. That sends signals to the strips to recreate a handful of patterns. ...</p>
+<p>The 31 LED-strips are controlled by an ESP32-C3 microcontroller. That sends signals to the strips to recreate a handful of patterns. ...</p>
 <h1>Requirements</h1>
 <ul>
     <li>Materials:</li>
     <ul>
-        <li>18 LED-strips</li>
-        <li>3 wooden OSB plates</li>
-        <li>Mirror foil for each side, 70cm X 70 cm</li>
-        <li>ESP32 microcontroller</li>
-        <li>Button(s)</li>
+        <li>10 meters of BTF-LIGHTING WS2814 12V LED-strips</li>
+        <li>3 wooden mbf plates making a cube from 70 X 70 X 71.8 cm</li>
+        <li>Mirror foil for each side</li>
+        <li>ESP32-C3-DevKitM-1 microcontroller</li>
+        <li>2 buttons in a 3D printed box</li>
     </ul>
     <li>Software:</li>
-    <ul></ul>
+    <ul>
+    <li>coded in C++</li>
+    </ul>
 </ul>
 <h1>Team members</h1>
 <p>This project was developed by VIVES students Jonas De Rous, Xander Vyvey, Colin Bossuyt and Vic Verbiest in 2023.</p>
