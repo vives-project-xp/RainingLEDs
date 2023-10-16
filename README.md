@@ -29,8 +29,14 @@
 </ul>
 <h1 id="members">Team members</h1>
 <p>This project was developed by VIVES students Jonas De Rous, Xander Vyvey, Colin Bossuyt and Vic Verbiest in 2023.</p>
+<<<<<<< HEAD
 <h1 id="image">Images</h1>
 <h2>Project Canvas</h2>
+=======
+<h1>Images</h1>
+<img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
+<h1>Projectcanvas</h1>
+>>>>>>> 117ab836a75ead50eaa0363559858b594d04024b
 <img src="src/schema.jpg" alt="Projectcanvas" style="transform: rotate(deg);" />
 <h2>Prototype 1</h2>
 <img src="src/Prototype.jpg" alt="Prototype 1"/>
