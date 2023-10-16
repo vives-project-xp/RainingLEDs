@@ -1,18 +1,18 @@
 # RainingLEDs
 <h1>Table of contents</h1>
 <ul>
-    <li><a href="#what">What?</a></li>
-    <li><a href="#how">How does it work?</a></li>
-    <li><a href="#required">Requirements</a></li>
-    <li><a href="#members">Team members</a></li>
+    <li><a href="#What?">What?</a></li>
+    <li><a href="#How does it work?">How does it work?</a></li>
+    <li><a href="#Requirements">Requirements</a></li>
+    <li><a href="#Team members">Team members</a></li>
     <li><a href="#Images">Images</a></li>
 </ul>
-<h1 id="what">What?</h1>
+<h1>What?</h1>
 <p>The RainingLEDs project is a project that contains a cool and unique photo location. It's made for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 18 LEDstrips, creating an infinite rain illusion.
 </p>
-<h1 id="how">How does it work?</h1>
+<h1>How does it work?</h1>
 <p>The 18 LED-strips are controlled by an ESP32-C3 microcontroller. That sends signals to the strips to recreate a handful of patterns. At the side of the box the vistors can push on 2 different buttons which put the LEDs in 2 different modes.</p>
-<h1 id="required">Requirements</h1>
+<h1>Requirements</h1>
 <ul>
     <li>Materials:</li>
     <ul>
@@ -27,7 +27,7 @@
     <li>coded in C++</li>
     </ul>
 </ul>
-<h1 id="members">Team members</h1>
+<h1>Team members</h1>
 <p>This project was developed by VIVES students Jonas De Rous, Xander Vyvey, Colin Bossuyt and Vic Verbiest in 2023.</p>
 <h1>Images</h1>
 <h2>Electric scheme</h2>  
