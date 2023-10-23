@@ -1,12 +1,4 @@
 # RainingLEDs
-<h1>Table of contents</h1>
-<ul>
-    <li>[What?](#What)</li>
-    <li>[How does it work?](#how)</li>
-    <li>[Reguirements](#require)</li>
-    <li>[Image](#image)</li>
-    <li>[Team members](#members)</li>
-</ul>
 <h1 id="What">What?</h1>
 <p>The RainingLEDs project is a project that contains a cool and unique photo location. It's made for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 18 LEDstrips, creating an infinite rain illusion. Important to know is that this project is a prototype or smaller version for a bigger version that has yet to be made.
 </p>
