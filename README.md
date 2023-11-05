@@ -29,5 +29,11 @@
 <h2>Prototype 1</h2>
 <img src="src/Prototype.jpg" alt="Prototype 1"/>
 <figcaption>This is the first, very simply, prototype. The main goal was to see how big the box has to be and how many LEDs we need.</figcaption>
+<h2>Testing LEDstrips</h2>
+<img src="src/ledTests.jpg" alt="LED tests"/>
+<figcaption>Before we started building the box, we tested the LEDstrips to see if they all worked.</figcaption>
+<h2>Final box</h2>
+<img src="src/box.jpg" alt="Box"/>
+<figcaption>The final box, including the working LEDstrips.</figcaption>
 <h1 id="members">Team members</h1>
 <p>This project was developed by VIVES students Jonas De Rous, Xander Vyvey, Colin Bossuyt and Vic Verbiest in 2023.</p>
