@@ -28,9 +28,9 @@ As stated before, this project contains a small box which is the base for a poss
 <h2>Power Supply</h2>
 <h2>LEDstrips</h2>
 <h1 id="image">Images</h1>
-<h2>Electric scheme</h2>  
+<h2>Electric schematic</h2>  
 <img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
-<figcaption>The Electric scheme shows into detail how all the LEDs are connected to the ESP32 microcontroller.</figcaption>
+<figcaption>The Electric schematic shows into detail how all the LEDs are connected to the ESP32 microcontroller.</figcaption>
 <h2>Projectcanvas</h2>
 <img src="src/schema.jpg" alt="Projectcanvas" style="transform: rotate(deg);" />
 <figcaption>The projectcanvas shows the different aspects of the project. It was the first plan of the project and contains things like the tasks that need to be done and the stakeholders.</figcaption>
