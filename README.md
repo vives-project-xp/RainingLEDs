@@ -1,6 +1,6 @@
 # RainingLEDs
 <h1 id="What">What?</h1>
-<p>The RainingLEDs project is a project that contains a cool and unique photo location. It's made for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 17 LEDstrips, creating an infinite rain illusion. Important to know is that this project is a prototype or smaller version for a bigger version that has yet to be made (see chapter 'Project Expansion'). 
+<p>The RainingLEDs project is a project that contains a cool and unique photo location. It's made for all ages, but more focussed on influencers and social media users. Our project consists of a box with mirror foil and 17 LEDstrips, creating an infinite rain illusion. Important to know is that this project is a proof of concept that can help making a bigger version that has yet to be made (see chapter 'Project Expansion'). 
 </p>
 <h1 id="how">How does it work?</h1>
 <p>The 17 LED-strips are controlled by an ESP32-C3 microcontroller. That sends signals to the strips to recreate a handful of patterns. At the side of the box the vistors can push on 2 different buttons which put the LEDs in different modes.</p>
@@ -24,9 +24,26 @@
     </ul>
 </ul>
 <h1>Project Expansion</h1>
-As stated before, this project contains a small box which is the base for a possible expansion as a bigger (human-size) box. In this chapter you'll find all documentation and thing we noticed that can be helpfull for this.
-<h2>Power Supply</h2>
+As stated before, this project is a proof of concept, which is the base for a possible expansion as a bigger (human-size) box. In this chapter you'll find all documentation and things we noticed that can be helpfull for this.
+<h2>Box</h2>
+<ul>
+<li>
+Our box is in fact too small to take a picture of a full person. This makes is easy to replace, but is also a disadvantage since the effects would be more spectacular on a human-size box. So a bigger box should be one of the primary improvements this project needs. 
+</li>
+<li>
+For the wood, we used mbf plates. This is a strong type of wood that can easily be drilled into, so perfect for our project. We used mirror foil, but it should be strong enough to carry real mirrors. Keep in mind this will make it a heavy construction, so replacing it wont be an option in that case.
+</li>
+<li>
+As stated before, we didn't use real mirrors but a foil. Because the LEDs are hanging in front of it, it almost gives the same effect as a real mirror. So this is something we could reccomend!
+</li>
+</ul>
 <h2>LEDstrips</h2>
+We used 17 LEDstrips from +/- 50 cm. The only problem with this is that the strips are one-sided, so they are either facing the mirrors or the audience. This makes the effect come out less, so double LED strips would be better. For this, a few things have to be known:
+<ul>
+<li>
+<h3>Power supply</h3>
+</li>
+</ul>
 <h1 id="image">Images</h1>
 <h2>Electric schematic</h2>  
 <img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
