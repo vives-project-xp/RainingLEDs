@@ -58,7 +58,7 @@ But we ran into some problems: they only worked with static functions, not with 
 <h2>Electric schematic</h2>  
 <img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
 <h2>Final electric schematic</h2> 
-<img src="src/elektrisch_schema2.PNG" alt="elektrisch schema2">
+<img src="src/elektrisch_schema2.png" alt="elektrisch schema2">
 <figcaption>The Electric schematic shows into detail how all the LEDs are connected to the ESP32 microcontroller.</figcaption>
 <h2>Projectcanvas</h2>
 <img src="src/schema.jpg" alt="Projectcanvas" style="transform: rotate(deg);" />
