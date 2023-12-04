@@ -44,15 +44,15 @@ We used 17 LEDstrips from +/- 50 cm. The only problem with this is that the stri
 <h3>Power supply</h3>
 </li>
 </ul>
-<h1>Troubleshooting</h1>
+<h1 id="troubleshooting">Troubleshooting</h1>
 <h2>LEDstrips</h2>
 We had to resolder a few LEDstrips because the cables were detached while we were putting them in the box. When all the LEDs were in place we located 2 strips cause they stopped functioning and replaced them by 2 smaller strips.
 <h2>Coding</h2>
-We started with coding some simple functions to test the LEDs. After that we extended the LEDstrip to see if it would still work with the ESP32. We encountered a problem with some code examples where the LEDs would not follow the code and would simply show random colours. When the voltage was adapted to the right value, it started working again with a larger LEDstrip.
+We started with coding some simple functions to test the LEDs. After that we extended the LEDstrip to see if it would still work with the ESP32. We encountered a problem with some code examples where the LEDs would not follow the code and would simply show random colours. When the voltage was adapted to the right value, it started working again with a larger LEDstrip. This was all done with one data line, however we wanted to use mutiple data lines to create a more natural flow between the LEDstrips so that there would be some variation. This worked with four data lines but only one pattern at a time. We still had some problems with cycling between dynamic patterns with multiple data lines.
 <h2>Power supply</h2>
-We began with following the datasheet, so we used a voltage of 3.6 with a school power supply. Because we were working with a voltage of 3.6 we had to consider to limit our brightness so we wouldn't take up a whole lot of wattage. We concluded that the ideal brightness for the LEDs was 60%. This also made sure that the functions worked properly. When we rearranged the wiring of our project, we made it work to use our own power supply with 5V.   
+We began with following the datasheet, so we used a voltage of 3.6 with a school power supply. Because we were working with a voltage of 3.6 we had to consider to limit our brightness so we wouldn't take up a whole lot of wattage. We concluded that the ideal brightness for the LEDs was 60%. This also made sure that the functions worked properly. When we rearranged the wiring of our project, we made it work to use our own power supply with 5V.
 <h2>Button</h2>
-The buttons were implemented fairly quickly. 
+The buttons were implemented fairly quickly.
 But we ran into some problems: they only worked with static functions, not with dynamic patterns and a delay occured when pushed. We solved the delay problem by adding a debounce system that ensured that only one button press is registered. By working with threads we managed to cycle between dynamic functions.
 <h1 id="image">Images</h1>
 <h2>Electric schematic</h2>  
