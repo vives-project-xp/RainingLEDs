@@ -34,7 +34,7 @@ Our box is in fact too small to take a picture of a full person. This makes is e
 For the wood, we used mbf plates. This is a strong type of wood that can easily be drilled into, so perfect for our project. We used mirror foil, but it should be strong enough to carry real mirrors. Keep in mind this will make it a heavy construction, so replacing it wont be an option in that case.
 </li>
 <li>
-As stated before, we didn't use real mirrors but a foil. Because the LEDs are hanging in front of it, it almost gives the same effect as a real mirror. So this is something we could reccomend!
+As stated before, we didn't use real mirrors but a foil. Because the LEDs are hanging in front of it, it almost gives the same effect as a real mirror. So this is something we could recommend!
 </li>
 </ul>
 <h2>LEDstrips</h2>
@@ -44,9 +44,21 @@ We used 17 LEDstrips from +/- 50 cm. The only problem with this is that the stri
 <h3>Power supply</h3>
 </li>
 </ul>
+<h1>Troubleshooting</h1>
+<h2>LEDstrips</h2>
+We had to resolder a few LEDstrips because the cables were detached while we were putting them in the box. When all the LEDs were in place we located 2 strips cause they stopped functioning and replaced them by 2 smaller strips.
+<h2>Coding</h2>
+We started with coding some simple functions to test the LEDs. After that we extended the LEDstrip to see if it would still work with the ESP32. We encountered a problem with some code examples where the LEDs would not follow the code and would simply show random colours. When the voltage was adapted to the right value, it started working again with a larger LEDstrip.
+<h2>Power supply</h2>
+We began with following the datasheet, so we used a voltage of 3.6 with a school power supply. Because we were working with a voltage of 3.6 we had to consider to limit our brightness so we wouldn't take up a whole lot of wattage. We concluded that the ideal brightness for the LEDs was 60%. This also made sure that the functions worked properly. When we rearranged the wiring of our project, we made it work to use our own power supply with 5V.   
+<h2>Button</h2>
+The buttons were implemented fairly quickly. 
+But we ran into some problems: they only worked with static functions, not with dynamic patterns and a delay occured when pushed. We solved the delay problem by adding a debounce system that ensured that only one button press is registered. By working with threads we managed to cycle between dynamic functions.
 <h1 id="image">Images</h1>
 <h2>Electric schematic</h2>  
 <img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
+<h2>Final electric schematic</h2> 
+<img src="src/elektrisch_schema2.PNG" alt="elektrisch schema2">
 <figcaption>The Electric schematic shows into detail how all the LEDs are connected to the ESP32 microcontroller.</figcaption>
 <h2>Projectcanvas</h2>
 <img src="src/schema.jpg" alt="Projectcanvas" style="transform: rotate(deg);" />
