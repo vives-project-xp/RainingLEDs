@@ -24,17 +24,17 @@
     </ul>
 </ul>
 <h1>Project Expansion</h1>
-As stated before, this project is a proof of concept, which is the base for a possible expansion as a bigger (human-size) box. In this chapter you'll find all documentation and things we noticed that can be helpfull for this.
+As stated before, this project is a proof of concept, which is the base for a possible expansion as a bigger (human-size) box. In this chapter you'll find all documentation and things we noticed that can be helpful for this.
 <h2>Box</h2>
 <ul>
 <li>
 Our box is in fact too small to take a picture of a full person. This makes is easy to replace, but is also a disadvantage since the effects would be more spectacular on a human-size box. So a bigger box should be one of the primary improvements this project needs. 
 </li>
 <li>
-For the wood, we used mbf plates. This is a strong type of wood that can easily be drilled into, so perfect for our project. We used mirror foil, but it should be strong enough to carry real mirrors. Keep in mind this will make it a heavy construction, so replacing it wont be an option in that case.
+For the sides of the box, we used mbf plates. This is a strong type of wood that can easily be drilled into, so perfect for our project. We used mirror foil, but it should be strong enough to carry real mirrors. Keep in mind this will make it a heavy construction, so replacing it won't be an option in that case.
 </li>
 <li>
-As stated before, we didn't use real mirrors but a foil. Because the LEDs are hanging in front of it, it almost gives the same effect as a real mirror. So this is something we could recommend!
+As stated before, we didn't use real mirrors but a mirror foil. Because the LEDs are hanging in front of it, it almost gives the same effect as a real mirror. So this is something we would recommend!
 </li>
 </ul>
 <h2>LEDstrips</h2>
@@ -46,14 +46,13 @@ We used 17 LEDstrips from +/- 50 cm. The only problem with this is that the stri
 </ul>
 <h1 id="troubleshooting">Troubleshooting</h1>
 <h2>LEDstrips</h2>
-We had to resolder a few LEDstrips because the cables were detached while we were putting them in the box. When all the LEDs were in place we located 2 strips cause they stopped functioning and replaced them by 2 smaller strips.
+We had to resolder a few LEDstrips because the cables were detached while we were putting them in the box. When all the LEDs were in place we noticed that 2 strips stopped functioning and replaced them by 2 smaller strips.
 <h2>Coding</h2>
-We started with coding some simple functions to test the LEDs. After that we extended the LEDstrip to see if it would still work with the ESP32. We encountered a problem with some code examples where the LEDs would not follow the code and would simply show random colours. When the voltage was adapted to the right value, it started working again with a larger LEDstrip. This was all done with one data line, however we wanted to use mutiple data lines to create a more natural flow between the LEDstrips so that there would be some variation. This worked with four data lines but only one pattern at a time. We still had some problems with cycling between dynamic patterns with multiple data lines.
+We started coding some simple functions to test the LEDs. After that we extended the LEDstrip to see if it would still work with the ESP32. We encountered a problem with some code examples where the LEDs would not follow the code and would simply show random colours. When the voltage was adapted to the right value, it started working again with a larger LEDstrip. This was all done with one data line, however we wanted to use mutiple data lines to create a more natural flow between the LEDstrips so that there would be some variation. This worked with four data lines but only one pattern at a time. We still had some problems with cycling between dynamic patterns with multiple data lines.
 <h2>Power supply</h2>
-We began with following the datasheet, so we used a voltage of 3.6 with a school power supply. Because we were working with a voltage of 3.6 we had to consider to limit our brightness so we wouldn't take up a whole lot of wattage. We concluded that the ideal brightness for the LEDs was 60%. This also made sure that the functions worked properly. When we rearranged the wiring of our project, we made it work to use our own power supply with 5V.
+We began with following the datasheet, so we used a voltage of 3.6 with a school power supply. Because we were working with a voltage of 3.6 we had to consider to limit our brightness so we wouldn't take up a whole lot of wattage. We concluded that the ideal brightness for the LEDs was 60%. This also made sure that the functions worked properly. When we rearranged the wiring of our project, we made it work using our own power supply with 5V.
 <h2>Button</h2>
-The buttons were implemented fairly quickly.
-But we ran into some problems: they only worked with static functions, not with dynamic patterns and a delay occured when pushed. We solved the delay problem by adding a debounce system that ensured that only one button press is registered. By working with threads we managed to cycle between dynamic functions.
+The buttons were implemented fairly quickly, but we ran into some problems: they only worked with static functions, not with dynamic patterns and a delay occured when pushed. We solved the delay problem by adding a debounce system that ensured that only one button press is registered. By working with threads we managed to cycle between dynamic functions.
 <h1 id="image">Images</h1>
 <h2>Electric schematic</h2>  
 <img src="src/elektrisch_schema.PNG" alt="elektrisch schema">
