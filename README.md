@@ -14,32 +14,32 @@
     </ul>
 </ul>
 <H1>Hardware</H1>
-As stated before, this project is a proof of concept, which is the base for a possible expansion. The current box is here discribed and some possible improvements are listed.
+    As stated before, this project is a proof of concept, which is the base for a possible expansion. The current box is here discribed and some possible improvements are listed.
 <h2>Box</h2>
-<img src="src/box.jpg" alt="Box"/>
-For building the box, we used MBF plates. These are strong wooden plates that can easily be drilled into. The inside of the box has the dimention fo 70cm x 70cm x 70cm. This is the space where someone can stand in when they want to take a picture. On the inside, we used mirror foil to  create the illusion of a bigger number of leds. The buttons are placed ad the bottom side for easy acces when taking a picture. There are still some things that can be improved:
-<ul>
-<li>
-Our box is in fact too small to take a picture of a full person. This makes is easy to replace, but is also a disadvantage since the effects would be more spectacular on a human-size box. So a bigger box should be one of the primary improvements this project needs. 
-</li>
-<li>
-While the mirror foil is a cheap and easy way to create the wanted effect, it is not as good as a real mirror. The mirror foil is not as reflective as a real mirror, so the effect is less spectacular. A real mirror would be a better option, but is also more expensive and harder to work with.
-</li>
+    <img src="src/box.jpg" alt="Box"/>
+    For building the box, we used MBF plates. These are strong wooden plates that can easily be drilled into. The inside of the box has the dimention fo 70cm x 70cm x 70cm. This is the space where someone can stand in when they want to take a picture. On the inside, we used mirror foil to  create the illusion of a bigger number of leds. The buttons are placed ad the bottom side for easy acces when taking a picture. There are still some things that can be improved:
+    <ul>
+        <li>
+        Our box is in fact too small to take a picture of a full person. This makes is easy to replace, but is also a disadvantage since the effects would be more spectacular on a human-size box. So a bigger box should be one of the primary improvements this project needs. 
+    </li>
+    <li>
+    While the mirror foil is a cheap and easy way to create the wanted effect, it is not as good as a real mirror. The mirror foil is not as reflective as a real mirror, so the effect is less spectacular. A real mirror would be a better option, but is also more expensive and harder to work with.
+    </li>
 </ul>
 <h2>LEDstrips</h2>
-In the current project, we use 17 led strip who are each +/- 50 cm. this is a good length of the current box because of the extra room add the bottom is not too big and this way, we don't need an extra 5m led strip just to use 20% of it. To know if using 17 led strips works. We tried to use 2 data pins to control all the led strips.
-<img src="src/ledTests.jpg" alt="LED tests"/>
-Since this worked; we installed the leds in the box and connected everything together on top. Because of the drilled holes in the top plate. Installing the LED strips was easy. We used a breadboart to make all the connections with the esp32. This way, we could easily change the wiring if needed and replace components if they would  not work anymore. Most of the time, all led strips work as intended, but there are some times where the pattern is not 100% correct. Here are some things that can be improved about the lighting:
+    In the current project, we use 17 led strip who are each +/- 50 cm. this is a good length of the current box because of the extra room add the bottom is not too big and this way, we don't need an extra 5m led strip just to use 20% of it. To know if using 17 led strips works. We tried to use 2 data pins to control all the led strips.
+    <img src="src/ledTests.jpg" alt="LED tests"/>
+    Since this worked; we installed the leds in the box and connected everything together on top. Because of the drilled holes in the top plate. Installing the LED strips was easy. We used a breadboart to make all the connections with the esp32. This way, we could easily change the wiring if needed and replace components if they would  not work anymore. Most of the time, all led strips work as intended, but there are some times where the pattern is not 100% correct. Here are some things that can be improved about the lighting:
 <ul>
-<li>
-The current box uses 17 led strips. This is a good amount for the current box, but if we want to make a bigger box, we need more led strips. This is not a problem, but we need to make sure that the esp32 can handle all the led strips. We can do this by using a second esp32 or by using a esp32 with more data pins.
-</li>
-<li>
-In this project, all led strips hang on their own. This means that the side where leds are, are faced to the public or the camera or to the mirrors on the inside. They are never faced both. This is not a big problem but interferes with the illusion of the mirrors. This problem could be solved by putting 2 led strip, back to back instead of hang them alone.
-</li>
-<li>
-Each led strip is connected directly to the esp32. This means that there is maximum 3.3V on the data pin when sending a high signal. This can be the reason why the leds are not always working as intended. This can be solved by using a transistor or a mosfet to amplify the signal.
-</li>
+    <li>
+        The current box uses 17 led strips. This is a good amount for the current box, but if we want to make a bigger box, we need more led strips. This is not a problem, but we need to make sure that the esp32 can handle all the led strips. We can do this by using a second esp32 or by using a esp32 with more data pins.
+    </li>
+    <li>
+        In this project, all led strips hang on their own. This means that the  side where leds are, are faced to the public or the camera or to the mirrors on the inside. They are never faced both. This is not a big problem but interferes with the illusion of the mirrors. This problem could be solved by putting 2 led strip, back to back instead of hang them alone.
+    </li>
+    <li>
+        Each led strip is connected directly to the esp32. This means that there is maximum 3.3V on the data pin when sending a high signal. This can be the reason why the leds are not always working as intended. This can be solved by using a transistor or a mosfet to amplify the signal.
+    </li>
 </ul>
 <h1>software</h1>
     <h2>Adafruit_NeoPixel library</H2>
@@ -85,10 +85,35 @@ Each led strip is connected directly to the esp32. This means that there is maxi
             <h3>dimentions</h3>
             The box is where the whole project relies on. Whne there is no box, There is nothing to make a picture of. We think it would be a good thing if a whole person could stand between de hanging ledstrips. This means tha the box has to be at least 2 meters high. It would also be a good thing if the box is a little bit bigger. This way, the illusion of the mirrors would be better becous of the more ledstrips and there could bo more than 1 person in ther bow. With only a little more space, there can be a extra person on photo.
             <img src="src/expantion_dimentions.png" alt="expanded box">
-            We thik the dimentions of 100cm x 100cm x 200cm would be a good size for the box. This way, there is enough space for at least 3 people 
+            We think the dimentions of 100cm x 100cm x 200cm would be a good size for the box. This way, there is enough space for at least 3 people. If you want to be the project mobile, it is posible to split te side pannels in 2. 
+            <img src="src/expantion_split_box.png" alt="expanded box">
+            This way, the box can be transported in a car. If you find a way to link te bottom part to the top part, it can be used it again as the full project. It woeld be even possible to separate the top part to. This way, it is just a option to use the mirror sides.
         </li>
         <li>
             <h3>mirrors</h3>
+            To create the effect that we want, the top and sides of the inside of the box has to reflective. The best thing to use for this would be mirrors. in the prototype, we did not use mirror becaus of the expensive price. with mirrors, the effect could make this project a intressting attraction on a event. In the perfect world, the top and both sides would be mirrors. but sinds the ledsstrips has to come true the top, this would be very hard to do. Drilling holes in a mirror is a difficult proces and will result in a huge monney loss if it goes wrong. For the top part, we would dtick to the mirror foil.
+        </li>
+    </ul>
+    <h3>ledstrips</h3>
+        When the box becaums bigger, it is normal tha the number en langth of the ledstrips grows to. If we want to make a box as descriped above, there would be 25 ledstrips hanging from above. since we wanted to double the ledstips for the mirror effect, this would come down on 50 ledstrips. When we make each of tham 150 cm, that would mean that there would be 75 meters of ledstrips. this would come down on 277 euro with the type of leds we are currently using.
+        <img src="src/expantion_ledplacement.png" alt="expanded box">
+        This would be a good placment of the ledstrips. with the staggert placement, The mirrors will reflecta as much of the light as possible resulting in a beautifull photo.
+    <h3>electronics</h3>
+    <ul>
+        <li>
+            <h3>mcu</h3>
+                The best way to controle all ledstrips is when every ledstrip has its own data pin. This way, it is possible for every ledstrip to do somthing completely different which would result in no boundaries for patterns. In the current project, we used an ESP32-C3-DevKitC-02.
+                <img src="src/esp32-c3-devkitm-1-v1-pinout.png" alt="esp32-c3-devkitm-1-v1-pinout">
+                This microcontroler has 15 GPIO ports. this is enough for the prototype but comes to short for the expanded version. We would need at least 27 GPIO ports if we want to keep the cycle buttons. A good solution would be the ESP32-WROOM-32. This microcontroler has 38 GPIO ports. This would be enough for the expanded version and would give us the possibility to add more buttons or other components.
+                <img src="src/esp32-wroom-32.webp" alt="expanded box">
+        </li>
+        <li>
+            <h3>powersuply</h3>
+                With 50 ledstrips, the power consumption will be a lot higher. This means that the power supply has to be more powerfull. When we use 50 ledstrips, the max powerconsumption would be around 30 Watt. The project would have to be connected to a 5V 6A power supply like the LHA30F-5-SNY
+                <img src="src/LHA30F-5-SNY.jpg" alt="LHA30F-5-SNY">
+        </li>
+        <li>
+            <h3>data transmition</h3>
         </li>
     </ul>
     
