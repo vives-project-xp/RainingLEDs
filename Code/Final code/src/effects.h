@@ -5,28 +5,27 @@
 
 // Define effects
 const String EFFECTS[] = {
-  "rain", 
+  "rainEffect", 
   "fill",
-  "wave",
-  "starlight",
+  "waveFade",
+  "blinkingStarlight",
   "sunrise",
   "rainbow",
   "meteor",
-  "ripple",
-  "other"
-
+  "rippleEffect",
+  //"everyOther"
 };
 
 // Define delays for each effect
 enum Delays {
   fill = 100,
-  rain = 100,
-  wave = 100,
-  starlight = 100,
+  rainEffect = 100,
+  waveFade = 100,
+  blinkingStarlight = 100,
   sunrise = 100,
   rainbow = 100,
-  ripple = 100,
-  other = 100,
+  rippleEffect = 100,
+  //other = 100,
 };
 
 // Define custom types
@@ -38,13 +37,13 @@ struct Color {
 };
 
 // Function prototypes
-void rainEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color, int drops[], int numDrops, int dropLength = 3);
-void waveFade(Adafruit_NeoPixel ledstrips[], int num_ledstrips, String color);
-void sunriseEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips);
-void rainbowEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, long &hue);
+void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color, int drops[], int numDrops, int dropLength = 3); 
+void waveFadeEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, String color); 
+void sunriseEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips); 
+void rainbowEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, long &hue); 
 void setPixelColorAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, int pixel, Color color);
 void fillAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color);
-void turnOnRandomLEDs(Adafruit_NeoPixel ledstrips[], int numLEDs);
-void blinkingStarlight(Adafruit_NeoPixel ledstrips[], int delayTime);
-void rippleEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color);
-void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color);
+void turnOnRandomLEDs(Adafruit_NeoPixel ledstrips[], int numLEDs); 
+void blinkingStarlights(Adafruit_NeoPixel ledstrips[], int delayTime); 
+void rippleEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
+//void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
