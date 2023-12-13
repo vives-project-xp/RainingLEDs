@@ -41,6 +41,8 @@ void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color, 
       for (int k = 0; k < num_ledstrips; k++) {
         int position = (drops[i] + j + offsets[k]) % ledstrips[k].numPixels();
         ledstrips[k].setPixelColor(position, color.r, color.g, color.b, color.w);
+        // Color adjustedColor = Color(color.Red, color.Green, color.Blue * 0.8); // Reduce blue by 20%
+        // ledstrips[k].setPixelColor(position, adjustedColor.r, adjustedColor.g, adjustedColor.b, adjustedColor.w);
       }
     }
   }
@@ -109,16 +111,16 @@ void rippleEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color
 }
 
 
-// void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color) {
-//   static int position = 0;
-//   int change = 2;
+void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color) {
+  static int position = 0;
+  int change = 2;
 
-//   for (int i = 0; i < num_ledstrips; i++) {
-//     setPixelColorAll(ledstrips, num_ledstrips, position, color);
-//   }
+  for (int i = 0; i < num_ledstrips; i++) {
+    setPixelColorAll(ledstrips, num_ledstrips, position, color);
+  }
 
-//   position = (position + change) % ledstrips[0].numPixels();
-// }
+  position = (position + change) % ledstrips[0].numPixels();
+}
 
 void setPixelColorAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, int pixel, Color color){
     for (int i = 0; i < num_ledstrips; i++) {

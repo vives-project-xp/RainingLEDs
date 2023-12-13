@@ -143,9 +143,10 @@ void callback(char *topic, byte *payload, unsigned int length) {
     effectRunning = false;
   }
   else  if (String(topic) == mqtt_effect) {
-    if (messageTemp == "rainEffect" || messageTemp == "waveFade" || messageTemp == "sunriseEffect" || messageTemp == "turnOnRandomLEDs" || messageTemp == "blinkingStarlight" || messageTemp == "rippleEffect" || messageTemp == "everyOther") {
+    if (messageTemp == "waveFade" || messageTemp == "rainEffect" || messageTemp == "sunriseEffect" || messageTemp == "turnOnRandomLEDs" || messageTemp == "blinkingStarlight" || messageTemp == "rippleEffect" || messageTemp == "everyOther") {
       currentEffect = messageTemp;
       effectRunning = true;
+      Serial.println("Current effect: " + currentEffect); 
     }
   }
   
@@ -306,12 +307,12 @@ else if (effectRunning){
     }
     rippleEffects(LEDSTRIPS, NUM_LEDSTRIPS, {152, 255, 152, 100});
   }
-  // else if (currentEffect == "everyOther"){
-  //  if (currentEffect != previousEffect) {
-  //     delayTime = Delays::other;
-  //   }
-  //   everyOther(LEDSTRIPS, NUM_LEDSTRIPS, {0, 255, 0, 0});
-  // }
+  else if (currentEffect == "everyOther"){
+   if (currentEffect != previousEffect) {
+      delayTime = Delays::other;
+    }
+    everyOther(LEDSTRIPS, NUM_LEDSTRIPS, {0, 255, 0, 0});
+  }
   else {
     fillAll(LEDSTRIPS, NUM_LEDSTRIPS, {0,0,0,0});
     delayTime = 0;
@@ -324,8 +325,44 @@ else if (effectRunning){
 }
 
 
+// int GetEffectIndex(String effect) {
+//   for (int i = 0; i < sizeof(EFFECTS); i++) {
+//     if (EFFECTS[i] == effect) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
+// void SwitchToNextEffect() {
+//   int index = GetEffectIndex(currentEffect);
+//   if (index == -1) {
+//     currentEffect = EFFECTS[0];
+//     return;
+//   }
+//   if (index == sizeof(EFFECTS) - 1) {
+//     currentEffect = EFFECTS[0];
+//     return;
+//   }
+//   currentEffect = EFFECTS[index + 1];
+// }
+
+// void SwitchToPreviousEffect() {
+//   int index = GetEffectIndex(currentEffect);
+//   if (index == -1) {
+//     currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
+//     return;
+//   }
+//   if (index == 0) {
+//     currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
+//     return;
+//   }
+//   currentEffect = EFFECTS[index - 1];
+// }
+
 int GetEffectIndex(String effect) {
-  for (int i = 0; i < sizeof(EFFECTS); i++) {
+  int numEffects = sizeof(EFFECTS) / sizeof(EFFECTS[0]);
+  for (int i = 0; i < numEffects; i++) {
     if (EFFECTS[i] == effect) {
       return i;
     }
@@ -334,27 +371,21 @@ int GetEffectIndex(String effect) {
 }
 
 void SwitchToNextEffect() {
+  int numEffects = sizeof(EFFECTS) / sizeof(EFFECTS[0]);
   int index = GetEffectIndex(currentEffect);
-  if (index == -1) {
+  if (index == -1 || index == numEffects - 1) {
     currentEffect = EFFECTS[0];
-    return;
+  } else {
+    currentEffect = EFFECTS[index + 1];
   }
-  if (index == sizeof(EFFECTS) - 1) {
-    currentEffect = EFFECTS[0];
-    return;
-  }
-  currentEffect = EFFECTS[index + 1];
 }
 
 void SwitchToPreviousEffect() {
+  int numEffects = sizeof(EFFECTS) / sizeof(EFFECTS[0]);
   int index = GetEffectIndex(currentEffect);
-  if (index == -1) {
-    currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
-    return;
+  if (index == -1 || index == 0) {
+    currentEffect = EFFECTS[numEffects - 1];
+  } else {
+    currentEffect = EFFECTS[index - 1];
   }
-  if (index == 0) {
-    currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
-    return;
-  }
-  currentEffect = EFFECTS[index - 1];
 }

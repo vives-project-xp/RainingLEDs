@@ -13,7 +13,7 @@ const String EFFECTS[] = {
   "rainbow",
   "meteor",
   "rippleEffect",
-  //"everyOther"
+  "everyOther"
 };
 
 // Define delays for each effect
@@ -25,7 +25,7 @@ enum Delays {
   sunrise = 100,
   rainbow = 100,
   rippleEffect = 100,
-  //other = 100,
+  other = 100,
 };
 
 // Define custom types
@@ -46,4 +46,4 @@ void fillAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color);
 void turnOnRandomLEDs(Adafruit_NeoPixel ledstrips[], int numLEDs); 
 void blinkingStarlights(Adafruit_NeoPixel ledstrips[], int delayTime); 
 void rippleEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
-//void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
+void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
