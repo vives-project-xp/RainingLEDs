@@ -10,18 +10,14 @@
 #include <freertos/task.h>
 
 #include "effects.h"
+#include "info.h"
 
-const char* ssid = "devbit";
-const char* password = "Dr@@dloos!";
 const char* mqtt_rgbw ="PM/RL/RL/rgbw";
 const char* mqtt_command ="PM/RL/RL/command";
 const char* mqtt_effect ="PM/RL/RL/effect";
 const char* mqtt_brightness ="PM/RL/RL/brightness";
-const char* mqtt_server = "projectmaster.devbit.be"; 
+
 const int mqtt_port = 1883;
-const char* client_id = "RL";
-const char* mqtt_user = "RL";
-const char* mqtt_password = "RL";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -65,12 +61,13 @@ int receivedW = -1;
 
 bool effectRunning = false;
 
-const Color fillColor = {0, 0, 0, 255};
+const Color fillColor = {0, 255, 0, 0};
 const int dropAmount = 31; 
 const int dropLength = 3; 
 const String waveColor = "blue"; 
 
-int drops[dropAmount] = {0}; 
+int drops[dropAmount] = {0};
+
 long hue = 0;
 
 
@@ -129,7 +126,6 @@ void callback(char *topic, byte *payload, unsigned int length) {
    else if (String(topic) == mqtt_brightness) {
     int brightness = messageTemp.toInt();
     if (brightness >= 0 && brightness <= 255) {
-      // Assuming LEDSTRIPS is your array of Adafruit_NeoPixel objects
       for (int i = 0; i < NUM_LEDSTRIPS; i++) {
         LEDSTRIPS[i].setBrightness(brightness);
         LEDSTRIPS[i].show();
@@ -143,7 +139,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
     effectRunning = false;
   }
   else  if (String(topic) == mqtt_effect) {
-    if (messageTemp == "waveFade" || messageTemp == "rainEffect" || messageTemp == "sunriseEffect" || messageTemp == "turnOnRandomLEDs" || messageTemp == "blinkingStarlight" || messageTemp == "rippleEffect" || messageTemp == "everyOther") {
+    if (messageTemp == "waveFade" || messageTemp == "rainEffect" || messageTemp == "sunriseEffect" || messageTemp == "rippleEffect" || messageTemp == "blinkingStarlight" || messageTemp == "fire" || messageTemp == "breathingEffect") {
       currentEffect = messageTemp;
       effectRunning = true;
       Serial.println("Current effect: " + currentEffect); 
@@ -176,6 +172,7 @@ void setup() {
   effectRunning = true;
 
   Serial.begin(115200);
+
   // Connect to WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -196,13 +193,14 @@ void setup() {
 }
 
 void reconnect() {
-  // Loop until we're reconnected
+  // Loop until reconnected
   while (!client.connected()) {
     Serial.println("Attempting MQTT connection...");
 
     // Attempt to connect
     if (client.connect("RL", mqtt_user, mqtt_password)) {
       Serial.println("Connected to MQTT broker");
+
       // Subscribe to the MQTT topic after reconnection
       client.subscribe(mqtt_rgbw);
       client.subscribe(mqtt_effect);
@@ -244,10 +242,6 @@ void loop() {
   }
     mqttCommandReceived = false;
     } else if (receivedR != -1 && receivedG != -1 && receivedB != -1 && receivedW != -1) {
-      // ledstrip1.clear();
-      // ledstrip2.clear();
-      // ledstrip3.clear();
-      // ledstrip4.clear();
   // Create a Color object from the received RGBW values
   Color receivedColor = {receivedR, receivedG, receivedB, receivedW};
   // Set all LEDs to the received color
@@ -256,6 +250,7 @@ void loop() {
   ledstrip2.show();
   ledstrip3.show();
   ledstrip4.show();
+
   // Reset the received RGBW values
   receivedR = -1;
   receivedG = -1;
@@ -270,10 +265,7 @@ else if (effectRunning){
       delayTime = Delays::rainEffect;
       previousEffect = currentEffect;
     }
-    rainEffects(LEDSTRIPS, NUM_LEDSTRIPS, {0, 0, 255, 0}, drops, dropAmount, dropLength);
-  }
-  else if (currentEffect == "fill") {
-    fillAll(LEDSTRIPS, NUM_LEDSTRIPS, fillColor);
+    rainEffects(LEDSTRIPS, NUM_LEDSTRIPS);
   }
   else if (currentEffect == "waveFade") {
     if (currentEffect != previousEffect) {
@@ -287,31 +279,29 @@ else if (effectRunning){
     }
     blinkingStarlights(LEDSTRIPS, 200);
   }
-  else if (currentEffect == "sunriseEffect") {
+  else if (currentEffect == "sunriseEffect") { 
     if (currentEffect != previousEffect) {
       delayTime = Delays::sunrise;
     }
     sunriseEffect(LEDSTRIPS, NUM_LEDSTRIPS);
   }
-  else if (currentEffect == "rainbow") {
-    if (currentEffect != previousEffect) {
-      delayTime = Delays::rainbow;
-      hue = 0;
-    }
-    rainbowEffect(LEDSTRIPS, NUM_LEDSTRIPS, hue);
-
-  } 
-  else if (currentEffect == "rippleEffect") {
+  else if (currentEffect == "rippleEffect") {  
     if (currentEffect != previousEffect) {
       delayTime = Delays::rippleEffect;
     }
     rippleEffects(LEDSTRIPS, NUM_LEDSTRIPS, {152, 255, 152, 100});
   }
-  else if (currentEffect == "everyOther"){
+  else if (currentEffect == "fire"){
    if (currentEffect != previousEffect) {
       delayTime = Delays::other;
     }
-    everyOther(LEDSTRIPS, NUM_LEDSTRIPS, {0, 255, 0, 0});
+    fireEffect(LEDSTRIPS, NUM_LEDSTRIPS);
+  }
+  else if (currentEffect == "breathingEffect"){
+    if (currentEffect != previousEffect) {
+      delayTime = Delays::other;
+    }
+    breathingEffect(LEDSTRIPS, NUM_LEDSTRIPS);
   }
   else {
     fillAll(LEDSTRIPS, NUM_LEDSTRIPS, {0,0,0,0});
@@ -320,45 +310,9 @@ else if (effectRunning){
   for (int i = 0; i < NUM_LEDSTRIPS; i++) {
     LEDSTRIPS[i].show();
   }
-  
 }
 }
 
-
-// int GetEffectIndex(String effect) {
-//   for (int i = 0; i < sizeof(EFFECTS); i++) {
-//     if (EFFECTS[i] == effect) {
-//       return i;
-//     }
-//   }
-//   return -1;
-// }
-
-// void SwitchToNextEffect() {
-//   int index = GetEffectIndex(currentEffect);
-//   if (index == -1) {
-//     currentEffect = EFFECTS[0];
-//     return;
-//   }
-//   if (index == sizeof(EFFECTS) - 1) {
-//     currentEffect = EFFECTS[0];
-//     return;
-//   }
-//   currentEffect = EFFECTS[index + 1];
-// }
-
-// void SwitchToPreviousEffect() {
-//   int index = GetEffectIndex(currentEffect);
-//   if (index == -1) {
-//     currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
-//     return;
-//   }
-//   if (index == 0) {
-//     currentEffect = EFFECTS[sizeof(EFFECTS) - 1];
-//     return;
-//   }
-//   currentEffect = EFFECTS[index - 1];
-// }
 
 int GetEffectIndex(String effect) {
   int numEffects = sizeof(EFFECTS) / sizeof(EFFECTS[0]);

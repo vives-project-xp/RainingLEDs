@@ -6,14 +6,12 @@
 // Define effects
 const String EFFECTS[] = {
   "rainEffect", 
-  "fill",
   "waveFade",
   "blinkingStarlight",
-  "sunrise",
-  "rainbow",
-  "meteor",
+  "sunriseEffect",
   "rippleEffect",
-  "everyOther"
+  "fire",
+  "breathingEffect",
 };
 
 // Define delays for each effect
@@ -37,7 +35,7 @@ struct Color {
 };
 
 // Function prototypes
-void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color, int drops[], int numDrops, int dropLength = 3); 
+void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips);
 void waveFadeEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, String color); 
 void sunriseEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips); 
 void rainbowEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, long &hue); 
@@ -47,3 +45,5 @@ void turnOnRandomLEDs(Adafruit_NeoPixel ledstrips[], int numLEDs);
 void blinkingStarlights(Adafruit_NeoPixel ledstrips[], int delayTime); 
 void rippleEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
 void everyOther(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color); 
+void fireEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips) ;
+void breathingEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips);

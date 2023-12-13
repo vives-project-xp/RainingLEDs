@@ -30,22 +30,29 @@ void blinkingStarlights(Adafruit_NeoPixel ledstrips[], int delayTime) {
   }
 }
 
-void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color, int drops[], int numDrops, int dropLength){
-  int offsets[] = {0, 50, 100, 150}; // Add an offset for each LED strip
+void rainEffects(Adafruit_NeoPixel ledstrips[], int num_ledstrips) {
+  
+  uint32_t blue = ledstrips[0].Color(0, 0, 255);
 
-  for (int i = 0; i < numDrops; i++) {
-    fillAll(ledstrips, num_ledstrips, {0,0,0,0});
-    drops[i] = (drops[i] + 1) % ledstrips[0].numPixels();
+  static int position = 0; 
 
-    for (int j = 0; j < dropLength; j++) {
-      for (int k = 0; k < num_ledstrips; k++) {
-        int position = (drops[i] + j + offsets[k]) % ledstrips[k].numPixels();
-        ledstrips[k].setPixelColor(position, color.r, color.g, color.b, color.w);
-        // Color adjustedColor = Color(color.Red, color.Green, color.Blue * 0.8); // Reduce blue by 20%
-        // ledstrips[k].setPixelColor(position, adjustedColor.r, adjustedColor.g, adjustedColor.b, adjustedColor.w);
+  for (int i = 0; i < num_ledstrips; i++) {
+    delay(i * 20); 
+
+    for (int j = 0; j < ledstrips[i].numPixels(); j++) {
+      if (((j - position + ledstrips[i].numPixels()) / 4) % 2 == 0) {
+        
+        ledstrips[i].setPixelColor(j, blue);
+      } else {
+        
+        ledstrips[i].setPixelColor(j, 0);
       }
     }
+
+    ledstrips[i].show();
   }
+
+  position = (position + 1) % ledstrips[0].numPixels();
 }
 
 void waveFadeEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips, String color){
@@ -126,6 +133,37 @@ void setPixelColorAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, int pixe
     for (int i = 0; i < num_ledstrips; i++) {
     ledstrips[i].setPixelColor(pixel, color.r, color.g, color.b, color.w);
   }
+}
+
+void fireEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips) {
+  for (int i = 0; i < num_ledstrips; i++) {
+    for (int j = 0; j < ledstrips[i].numPixels(); j++) {
+      int red = random(150, 256);
+      int green = random(50, 150);
+      int blue = random(0, 50);
+      ledstrips[i].setPixelColor(j, ledstrips[i].Color(red, green, blue));
+    }
+    ledstrips[i].show();
+  }
+  delay(100);
+}
+
+void breathingEffect(Adafruit_NeoPixel ledstrips[], int num_ledstrips) {
+  static int brightness = 0; 
+  static int direction = 1; 
+
+  for (int i = 0; i < num_ledstrips; i++) {
+    for (int j = 0; j < ledstrips[i].numPixels(); j++) {
+      ledstrips[i].setPixelColor(j, ledstrips[i].Color(brightness, brightness, brightness));
+    }
+  }
+
+  brightness += direction;
+  if (brightness == 0 || brightness == 255) {
+    direction = -direction;
+  }
+
+  delay(10);
 }
 
 void fillAll(Adafruit_NeoPixel ledstrips[], int num_ledstrips, Color color){
